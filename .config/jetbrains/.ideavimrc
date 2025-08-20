@@ -21,9 +21,12 @@ map ml <action>(com.mikejhill.intellij.movetab.actions.MoveTabRight)
 
 " Actions
 
+map <leader>m <Action>(ManageRecentProjects)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+
 map <leader>r <Action>(ReformatCode)
 map <leader>s <Action>(SaveAll)
 
+map <leader>o <Action>(FileStructurePopup)
 map <leader>b <Action>(ShowBookmarks)
 map <leader>B <Action>(ToggleBookmarkWithMnemonic)
-map <leader>p <Action>(ManageRecentProjects)
