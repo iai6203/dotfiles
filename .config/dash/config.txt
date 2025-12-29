@@ -66,7 +66,7 @@ keybindings:
         - key: P
           name: create PR
           command: >
-            gh pr create -B "$(gum input --prompt='Branch: ')"
+            gh pr create -B "$(gum input --prompt='Branch name: ')"
     prs:
         - key: E
           name: edit PR
@@ -78,7 +78,7 @@ keybindings:
         - key: D
           name: develop Issue
           command: >
-              gh issue develop {{ .IssueNumber }} -n "$(gum input --prompt='Approval Comment: ')" -c
+              gh issue develop {{ .IssueNumber }} -n "$(gum input --prompt='Branch name: ')" -c
 repoPaths: {}
 theme:
     ui:
