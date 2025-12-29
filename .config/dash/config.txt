@@ -73,14 +73,17 @@ keybindings:
             gh pr create -B "$(gum input --prompt='Branch name: ')"
     prs:
         - key: E
-          name: edit PR
+          name: edit
           command: gh pr edit {{ .PrNumber }} --repo {{ .RepoName }}
     issues:
+        - key: T
+          name: copy title
+          command: gh issue view {{ .IssueNumber }} --json title -q .title | pbcopy
         - key: E
-          name: edit Issue
+          name: edit
           command: gh issue edit {{ .IssueNumber }} --repo {{ .RepoName }}
         - key: D
-          name: develop Issue
+          name: develop
           command: >
               gh issue develop {{ .IssueNumber }} -n "$(gum input --prompt='Branch name: ')" -c
 repoPaths: {}
