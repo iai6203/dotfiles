@@ -76,6 +76,9 @@ keybindings:
           name: edit
           command: gh pr edit {{ .PrNumber }} --repo {{ .RepoName }}
     issues:
+        - key: T
+          name: copy title
+          command: gh issue view {{ .IssueNumber }} --json title -q .title | pbcopy
         - key: E
           name: edit
           command: gh issue edit {{ .IssueNumber }} --repo {{ .RepoName }}
