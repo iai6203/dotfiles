@@ -30,3 +30,6 @@ map <leader>s <Action>(SaveAll)
 map <leader>o <Action>(FileStructurePopup)
 map <leader>b <Action>(ShowBookmarks)
 map <leader>B <Action>(ToggleBookmarkWithMnemonic)
+
+map <leader>C <Action>(CopyAbsolutePath)
+map <leader>c <Action>(CopyContentRootPath)
