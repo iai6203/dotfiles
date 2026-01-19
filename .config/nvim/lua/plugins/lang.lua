@@ -1,5 +1,11 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "http" },
+    },
+  },
+  {
     "MeanderingProgrammer/render-markdown.nvim",
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
