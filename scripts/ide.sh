@@ -1,6 +1,3 @@
 #!/bin/bash
-tmux split-window -h -l 20%
-tmux select-pane -L
-tmux split-window -v -l 30%
-tmux split-window -h -l 66%
-tmux split-window -h -l 50%
+tmux split-window -v -l 20% -d # Create a 20% height pane at bottom, keep focus on current pane
+nvim                           # Launch nvim editor
