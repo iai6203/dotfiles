@@ -1,3 +1,0 @@
-alias yz="yazi"
-alias lg="lazygit"
-alias lz="lazydocker"
