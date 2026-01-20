@@ -1,0 +1,5 @@
+- [`fzf`](https://github.com/junegunn/fzf)
+- [`fd`](https://github.com/sharkdp/fd)
+- [`yazi`](https://github.com/sxyazi/yazi)
+- [`lazygit`](https://github.com/jesseduffield/lazygit)
+- [`lazydocker`](https://github.com/jesseduffield/lazydocker)
