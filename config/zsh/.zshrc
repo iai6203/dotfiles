@@ -78,6 +78,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # User configuration
 
