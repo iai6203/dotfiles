@@ -12,6 +12,7 @@ return {
     opts = {
       heading = {
         sign = true,
+        position = "inline",
         icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
       },
       code = {
