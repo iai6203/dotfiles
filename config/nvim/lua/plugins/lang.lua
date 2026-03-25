@@ -19,7 +19,7 @@ return {
         sign = true,
       },
       win_options = {
-        conceallevel = { default = 0, rendered = 3 },
+        conceallevel = { default = 0, rendered = 0 },
       },
     },
   },
