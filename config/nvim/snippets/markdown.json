@@ -1,0 +1,26 @@
+{
+  "Task Note": {
+    "prefix": "task-note",
+    "body": [
+      "## ${1:내용}",
+      "",
+      "## 관련",
+      "",
+      "- $2",
+      "",
+      "## 참고",
+      "",
+      "- $0"
+    ],
+    "description": "작업 노트 템플릿"
+  },
+  "Writing Plans": {
+    "prefix": "writing-plans",
+    "body": [
+      "다시 한번 꼼꼼히 검토 후 계획 작성해.",
+      "",
+      "/superpowers:writing-plans"
+    ],
+    "description": "계획 작성 프롬프트"
+  }
+}
