@@ -25,104 +25,104 @@
   },
 
   "Skill: brainstorming": {
-    "prefix": "brainstorming",
+    "prefix": ["brainstorming", "superpowers:brainstorming"],
     "body": "/superpowers:brainstorming",
     "description": "스킬: 소크라테스식 설계 정제"
   },
   "Skill: executing-plans": {
-    "prefix": "executing-plans",
+    "prefix": ["executing-plans", "superpowers:executing-plans"],
     "body": "/superpowers:executing-plans",
     "description": "스킬: 체크포인트 기반 일괄 실행"
   },
   "Skill: subagent-driven-development": {
-    "prefix": "subagent-driven-development",
+    "prefix": ["subagent-driven-development", "superpowers:subagent-driven-development"],
     "body": "/superpowers:subagent-driven-development",
     "description": "스킬: 2단계 리뷰 기반 빠른 반복 개발"
   },
   "Skill: requesting-code-review": {
-    "prefix": "requesting-code-review",
+    "prefix": ["requesting-code-review", "superpowers:requesting-code-review"],
     "body": "/superpowers:requesting-code-review",
     "description": "스킬: 사전 리뷰 체크리스트"
   },
   "Skill: receiving-code-review": {
-    "prefix": "receiving-code-review",
+    "prefix": ["receiving-code-review", "superpowers:receiving-code-review"],
     "body": "/superpowers:receiving-code-review",
     "description": "스킬: 피드백 대응"
   },
   "Skill: dispatching-parallel-agents": {
-    "prefix": "dispatching-parallel-agents",
+    "prefix": ["dispatching-parallel-agents", "superpowers:dispatching-parallel-agents"],
     "body": "/superpowers:dispatching-parallel-agents",
     "description": "스킬: 동시 서브에이전트 워크플로우"
   },
   "Skill: verification-before-completion": {
-    "prefix": "verification-before-completion",
+    "prefix": ["verification-before-completion", "superpowers:verification-before-completion"],
     "body": "/superpowers:verification-before-completion",
     "description": "스킬: 완료 선언 전 실제 수정 확인"
   },
   "Skill: using-superpowers": {
-    "prefix": "using-superpowers",
+    "prefix": ["using-superpowers", "superpowers:using-superpowers"],
     "body": "/superpowers:using-superpowers",
     "description": "스킬: 스킬 시스템 소개"
   },
   "Skill: using-git-worktrees": {
-    "prefix": "using-git-worktrees",
+    "prefix": ["using-git-worktrees", "superpowers:using-git-worktrees"],
     "body": "/superpowers:using-git-worktrees",
     "description": "스킬: 병렬 개발 브랜치"
   },
   "Skill: test-driven-development": {
-    "prefix": "test-driven-development",
+    "prefix": ["test-driven-development", "superpowers:test-driven-development"],
     "body": "/superpowers:test-driven-development",
     "description": "스킬: RED-GREEN-REFACTOR 사이클"
   },
   "Skill: finishing-a-development-branch": {
-    "prefix": "finishing-a-development-branch",
+    "prefix": ["finishing-a-development-branch", "superpowers:finishing-a-development-branch"],
     "body": "/superpowers:finishing-a-development-branch",
     "description": "스킬: Merge/PR 결정 워크플로우"
   },
   "Skill: systematic-debugging": {
-    "prefix": "systematic-debugging",
+    "prefix": ["systematic-debugging", "superpowers:systematic-debugging"],
     "body": "/superpowers:systematic-debugging",
     "description": "스킬: 4단계 근본 원인 분석 프로세스"
   },
   "Skill: writing-skills": {
-    "prefix": "writing-skills",
+    "prefix": ["writing-skills", "superpowers:writing-skills"],
     "body": "/superpowers:writing-skills",
     "description": "스킬: 베스트 프랙티스 기반 스킬 생성"
   },
 
   "Skill: devtools-issue": {
-    "prefix": "issue",
+    "prefix": ["issue", "devtools:issue"],
     "body": "/devtools:issue",
     "description": "스킬: 라벨/assignee/템플릿 자동 감지 GitHub 이슈 생성"
   },
   "Skill: devtools-commit": {
-    "prefix": "commit",
+    "prefix": ["commit", "devtools:commit"],
     "body": "/devtools:commit",
     "description": "스킬: Conventional Commits 규격 커밋 메시지 자동 생성"
   },
   "Skill: devtools-explain": {
-    "prefix": "explain",
+    "prefix": ["explain", "devtools:explain"],
     "body": "/devtools:explain",
     "description": "스킬: staged 변경사항 파일별 상세 설명 생성"
   },
   "Skill: devtools-squash": {
-    "prefix": "squash",
+    "prefix": ["squash", "devtools:squash"],
     "body": "/devtools:squash",
     "description": "스킬: 커밋 스쿼시 후 Conventional Commits 메시지 자동 생성"
   },
   "Skill: devtools-debug-log": {
-    "prefix": "debug-log",
+    "prefix": ["debug-log", "devtools:debug-log"],
     "body": "/devtools:debug-log",
     "description": "스킬: [DEBUG] 접두사 로그 구문 삽입"
   },
   "Skill: devtools-pr": {
-    "prefix": "pr",
+    "prefix": ["pr", "devtools:pr"],
     "body": "/devtools:pr",
     "description": "스킬: 커밋 분석 후 Conventional Commits 타이틀 PR 자동 생성"
   },
 
   "Skill: karpathy-guidelines": {
-    "prefix": "karpathy",
+    "prefix": ["karpathy", "andrej-karpathy-skills:karpathy-guidelines"],
     "body": "/andrej-karpathy-skills:karpathy-guidelines",
     "description": "스킬: Karpathy 코딩 가이드라인"
   },
