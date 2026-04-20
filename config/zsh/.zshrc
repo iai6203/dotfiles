@@ -121,4 +121,5 @@ export FZF_DEFAULT_OPTS=" \
 alias yz="yazi"
 alias lg="lazygit"
 alias ide="~/Scripts/ide.sh"
+alias grid="~/Scripts/grid.sh"
 
