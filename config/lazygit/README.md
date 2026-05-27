@@ -1,5 +1,7 @@
-# [Lazygit](https://github.com/jesseduffield/lazygit)
+# Lazygit
 
-## Theme
+## Reference
 
-- [Catppuccin](https://github.com/catppuccin/lazygit)
+[GitHub](https://github.com/jesseduffield/lazygit)
+  - [configuration](https://github.com/jesseduffield/lazygit#configuration)
+- [Catppuccin theme](https://github.com/catppuccin/lazygit)
