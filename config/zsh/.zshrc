@@ -82,6 +82,9 @@ source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # User configuration
 
+# -- EDITOR --
+export EDITOR=nvim
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # -- Homebrew --
