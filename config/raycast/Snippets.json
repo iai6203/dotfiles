@@ -1,0 +1,6 @@
+[
+  {
+    "name": "[ClaudeCode] Context",
+    "text": "@MEMO.md\n\n이 태스크{argument name=\"Task Number\"}을 처리해야돼.\n관련 컨텍스트 파악해줘.\n\n(구현은 내가 추가 지시가 있기 전에 시작해서는 안돼.)\n\n\/andrej-karpathy-skills:karpathy-guidelines"
+  }
+]
