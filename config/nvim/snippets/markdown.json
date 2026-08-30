@@ -71,50 +71,5 @@
     ],
     "body": "/andrej-karpathy-skills:karpathy-guidelines",
     "description": "스킬: Karpathy 코딩 가이드라인"
-  },
-  "Skill: update-config": {
-    "prefix": "update-config",
-    "body": "/update-config",
-    "description": "스킬: Claude Code 설정 변경"
-  },
-  "Skill: keybindings-help": {
-    "prefix": "keybindings-help",
-    "body": "/keybindings-help",
-    "description": "스킬: 키바인딩 도움말"
-  },
-  "Skill: simplify": {
-    "prefix": "simplify",
-    "body": "/simplify",
-    "description": "스킬: 코드 단순화 리뷰"
-  },
-  "Skill: loop": {
-    "prefix": "loop",
-    "body": "/loop",
-    "description": "스킬: 반복 실행"
-  },
-  "Skill: schedule": {
-    "prefix": "schedule",
-    "body": "/schedule",
-    "description": "스킬: 스케줄 에이전트"
-  },
-  "Skill: claude-api": {
-    "prefix": "claude-api",
-    "body": "/claude-api",
-    "description": "스킬: Claude API 개발"
-  },
-  "Skill: init": {
-    "prefix": "init",
-    "body": "/init",
-    "description": "스킬: CLAUDE.md 초기화"
-  },
-  "Skill: review": {
-    "prefix": "review",
-    "body": "/review",
-    "description": "스킬: PR 리뷰"
-  },
-  "Skill: security-review": {
-    "prefix": "security-review",
-    "body": "/security-review",
-    "description": "스킬: 보안 리뷰"
   }
 }
