@@ -1,21 +1,4 @@
 {
-  "Task Note": {
-    "prefix": "task-note",
-    "body": [
-      "## 내용",
-      "",
-      "### [ ] Task01",
-      "",
-      "## 관련",
-      "",
-      "- $1",
-      "",
-      "## 참고",
-      "",
-      "- $0"
-    ],
-    "description": "작업 노트 템플릿"
-  },
   "Skill: devtools-issue": {
     "prefix": [
       "issue",
@@ -74,12 +57,14 @@
   },
   "use-scout-agent": {
     "prefix": "use-scout-agent",
-    "body": "스카웃 에이전트를 활용해서 지시하고 결과 보고해.",
-    "description": "스카웃 에이전트 활용 지시"
+    "body": "scout 에이전트를 활용해서 지시하고 결과 보고해."
   },
-  "use-task-agent": {
-    "prefix": "use-task-agent",
-    "body": "태스크 에이전트를 활용해서 지시하고 결과 보고해.",
-    "description": "태스크 에이전트 활용 지시"
+  "use-worker-agent": {
+    "prefix": "use-worker-agent",
+    "body": "worker 에이전트를 활용해서 지시하고 결과 보고해."
+  },
+  "use-oracle-agent": {
+    "prefix": "use-oracle-agent",
+    "body": "oracle 에이전트를 활용해서 검토하고 결과 보고해."
   }
 }
