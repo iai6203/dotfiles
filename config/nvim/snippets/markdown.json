@@ -12,7 +12,7 @@
       "commit",
       "devtools:commit"
     ],
-    "body": "/devtools:commit",
+    "body": "/devtools:commit $0 --assignee iai6203",
     "description": "스킬: Conventional Commits 규격 커밋 메시지 자동 생성"
   },
   "Skill: devtools-explain": {
