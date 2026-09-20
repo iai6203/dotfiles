@@ -55,6 +55,10 @@
     "body": "/andrej-karpathy-skills:karpathy-guidelines",
     "description": "스킬: Karpathy 코딩 가이드라인"
   },
+  "use-explore-agent": {
+    "prefix": "use-explore-agent",
+    "body": "explore 에이전트를 활용해서 지시하고 결과 보고해."
+  },
   "use-scout-agent": {
     "prefix": "use-scout-agent",
     "body": "scout 에이전트를 활용해서 지시하고 결과 보고해."
