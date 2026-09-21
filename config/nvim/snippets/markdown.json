@@ -12,7 +12,7 @@
       "commit",
       "devtools:commit"
     ],
-    "body": "/devtools:commit $0 --assignee iai6203",
+    "body": "/devtools:commit",
     "description": "스킬: Conventional Commits 규격 커밋 메시지 자동 생성"
   },
   "Skill: devtools-explain": {
@@ -44,7 +44,7 @@
       "pr",
       "devtools:pr"
     ],
-    "body": "/devtools:pr",
+    "body": "/devtools:pr $0 --assignee iai6203",
     "description": "스킬: 커밋 분석 후 Conventional Commits 타이틀 PR 자동 생성"
   },
   "Skill: karpathy-guidelines": {
