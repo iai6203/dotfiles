@@ -75,6 +75,11 @@
     "body": "tdd-workflows 에이전트를 활용해서 ${1:지시하고 결과 보고해.}",
     "description": "[wshobson/agents]"
   },
+  "use-ui-design-agent": {
+    "prefix": "use-ui-design-agent",
+    "body": "ui-design 에이전트를 활용해서 ${1:지시하고 결과 보고해.}",
+    "description": "[wshobson/agents]"
+  },
   "use-explore-agent": {
     "prefix": "use-explore-agent",
     "body": "explore 에이전트를 활용해서 지시하고 결과 보고해."
