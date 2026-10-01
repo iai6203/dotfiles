@@ -126,4 +126,6 @@ alias yz="yazi"
 alias lg="lazygit"
 alias ide="~/Scripts/ide.sh"
 alias grid="~/Scripts/grid.sh"
+alias plan="plannotator"
+alias plant="plannotator-tui"
 
