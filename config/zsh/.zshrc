@@ -127,5 +127,7 @@ alias lg="lazygit"
 alias ide="~/Scripts/ide.sh"
 alias grid="~/Scripts/grid.sh"
 alias plan="plannotator"
+alias planr="plannotator review | pbcopy"
+alias planl="plannotator last | pbcopy"
 alias plant="plannotator-tui"
 
