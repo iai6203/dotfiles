@@ -21,3 +21,10 @@ tmux 실행 후 아래 키로 플러그인을 관리합니다.
 - [Catppuccin](https://github.com/catppuccin/tmux)
 - [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
 - [tmux-battery](https://github.com/tmux-plugins/tmux-battery)
+
+### Session
+
+- [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
+- [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum)
+
+`prefix + C-s`로 세션을 저장하고 `prefix + C-r`로 복원합니다. 저장 파일은 `~/.local/share/tmux/resurrect`에 생성됩니다.
