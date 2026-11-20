@@ -25,7 +25,7 @@
       "squash",
       "devtools:squash"
     ],
-    "body": "/devtools:squash"
+    "body": "/devtools:squash ${1:count} --groups ${2:groups}$0"
   },
   "Skill: devtools-debug-log": {
     "prefix": [
