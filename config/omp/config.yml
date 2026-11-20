@@ -1,0 +1,19 @@
+modelRoles:
+  default: openai-codex/gpt-6.2-sol:high
+  smol: openai-codex/gpt-6.1-terra:medium
+symbolPreset: unicode
+composer:
+  shape: band
+statusLine:
+  preset: custom
+  leftSegments: [pi, vim, model, mode, collab, stream, path, git, pr, context_pct, cost]
+  rightSegments: [usage, session_name]
+  segmentOptions:
+    path: {abbreviate: true, maxLength: 40, stripWorkPrefix: true}
+theme:
+  dark: titanium
+update:
+  auto: false
+setupVersion: 3
+dev:
+  autoqaConsent: denied
