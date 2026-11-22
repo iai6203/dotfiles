@@ -35,10 +35,11 @@ initial_pane=$("$herdr" pane list --workspace "$workspace" | jq -er --arg tab "$
 "$herdr" tab rename "$initial_tab" nvim > /dev/null
 run_in_pane "$initial_pane" nvim
 
-for app in claude omp; do
-    pane=$("$herdr" tab create --workspace "$workspace" --cwd "$checkout" --label "$app" --no-focus \
-        | jq -er '.result.root_pane.pane_id')
-    run_in_pane "$pane" "$app"
-done
+claude_pane=$("$herdr" tab create --workspace "$workspace" --cwd "$checkout" --label agents --no-focus \
+    | jq -er '.result.root_pane.pane_id')
+omp_pane=$("$herdr" pane split "$claude_pane" --direction right --ratio 0.5 --cwd "$checkout" --no-focus \
+    | jq -er '.result.pane.pane_id')
+run_in_pane "$claude_pane" claude
+run_in_pane "$omp_pane" omp
 
 "$herdr" tab create --workspace "$workspace" --cwd "$checkout" --label terminal --no-focus > /dev/null
