@@ -8,7 +8,7 @@ macOS에서 Herdr 0.9.5 이상과 `jq`가 필요합니다. Herdr pane의 셸에�
 herdr plugin link "$PWD/config/herdr/local-plugins/worktree-tabs"
 ```
 
-Herdr에서 새 worktree를 만들면 기본 탭을 `nvim`으로 바꾸고 `claude`, `omp`, `terminal` 탭을 순서대로 추가합니다. 모든 탭은 새 checkout 루트에서 열립니다. 처음 세 탭은 이름과 같은 명령을 실행하고, `terminal`은 별도 명령 없이 기본 셸만 엽니다. 추가 탭으로 포커스를 옮기지 않으며, 기존 worktree를 다시 열 때는 실행되지 않습니다.
+Herdr에서 새 worktree를 만들면 기본 탭을 `nvim`으로 바꾸고 `agents`, `terminal` 탭을 순서대로 추가합니다. `agents` 탭은 좌우 50:50으로 나뉘어 왼쪽에서 `claude`, 오른쪽에서 `omp`를 실행합니다. 모든 pane은 새 checkout 루트에서 열립니다. `nvim` 탭은 `nvim`을 실행하고, `terminal` 탭은 별도 명령 없이 기본 셸만 엽니다. 추가 탭으로 포커스를 옮기지 않으며, 기존 worktree를 다시 열 때는 실행되지 않습니다.
 
 ```sh
 herdr plugin log list --plugin local.worktree-tabs --limit 5

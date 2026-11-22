@@ -4,4 +4,4 @@
 
 ## 로컬 플러그인
 
-- [Worktree Tabs](local-plugins/worktree-tabs/README.md): 새 worktree에 `nvim`, `claude`, `omp`, `terminal` 탭을 준비합니다.
+- [Worktree Tabs](local-plugins/worktree-tabs/README.md): 새 worktree에 `nvim`, `agents`(`claude`와 `omp` 좌우 분할), `terminal` 탭을 준비합니다.
