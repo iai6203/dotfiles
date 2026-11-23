@@ -4,4 +4,4 @@
 
 ## 로컬 플러그인
 
-- [Worktree Tabs](local-plugins/worktree-tabs/README.md): 새 worktree에 `nvim`, `agents`(`claude`와 `omp` 좌우 분할), `terminal` 탭을 준비하고, 멀티 레포 meta 레포에서는 지정한 서브 레포 worktree도 함께 만듭니다.
+- [Worktree Tabs](local-plugins/worktree-tabs/README.md): 새 worktree에 `nvim`(아래쪽 셸 포함), `agents`(`claude`와 `omp` 좌우 분할), `terminal` 탭을 준비하고, 멀티 레포 meta 레포에서는 지정한 서브 레포 worktree도 함께 만듭니다.
