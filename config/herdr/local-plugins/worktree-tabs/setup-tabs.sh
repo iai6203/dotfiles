@@ -40,7 +40,38 @@ initial_pane=$("$herdr" pane list --workspace "$workspace" | jq -er --arg tab "$
     | if length == 1 then .[0].pane_id else error("expected one initial pane") end
 ')
 "$herdr" tab rename "$initial_tab" nvim > /dev/null
-run_in_pane "$initial_pane" nvim
+
+# Meta repositories get one equal-width nvim pane per sub-repository worktree
+# that exists; anything else keeps a single nvim at the checkout root.
+repos=()
+manifest="$checkout/.herdr-worktree.json"
+if [[ -f $manifest ]]; then
+    while IFS= read -r repo; do
+        [[ -e $checkout/$repo/.git ]] && repos+=("$repo")
+    done < <(jq -r '.repos // [] | .[]' "$manifest")
+fi
+
+if (( ${#repos[@]} == 0 )); then
+    run_in_pane "$initial_pane" nvim
+else
+    nvim_panes=("$initial_pane")
+    pane=$initial_pane
+    for (( i = 1; i < ${#repos[@]}; i++ )); do
+        # The ratio is the share kept by the pane being split, so 1/remaining
+        # leaves every pane with the same width.
+        ratio=$(awk -v n="$(( ${#repos[@]} - i + 1 ))" 'BEGIN { printf "%.4f", 1 / n }')
+        pane=$("$herdr" pane split "$pane" --direction right --ratio "$ratio" \
+            --cwd "$checkout/${repos[i]}" --no-focus | jq -er '.result.pane.pane_id')
+        nvim_panes+=("$pane")
+    done
+
+    # Split first and start nvim afterwards so no nvim is resized while starting.
+    # The initial pane opened at the checkout root, so it moves into its repository.
+    run_in_pane "$initial_pane" "cd -- $(printf '%q' "$checkout/${repos[0]}") && nvim"
+    for (( i = 1; i < ${#repos[@]}; i++ )); do
+        run_in_pane "${nvim_panes[i]}" nvim
+    done
+fi
 
 claude_pane=$("$herdr" tab create --workspace "$workspace" --cwd "$checkout" --label agents --no-focus \
     | jq -er '.result.root_pane.pane_id')
