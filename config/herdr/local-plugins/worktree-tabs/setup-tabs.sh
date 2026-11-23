@@ -8,6 +8,13 @@ event=${HERDR_PLUGIN_EVENT_JSON:?}
 workspace=$(jq -er '.data.workspace.workspace_id' <<< "$event")
 initial_tab=$(jq -er '.data.workspace.active_tab_id' <<< "$event")
 checkout=$(jq -er '.data.worktree.path' <<< "$event")
+branch=$(jq -er '.data.worktree.branch' <<< "$event")
+source_root=$(jq -er '.data.workspace.worktree.repo_root' <<< "$event")
+
+# Prepare sub-repository worktrees before the panes start, but still open the
+# tabs when a sub-repository fails; the failure is reported via the exit code.
+sub_status=0
+/bin/bash "$(dirname "$0")/sub-worktrees.sh" "$source_root" "$checkout" "$branch" || sub_status=$?
 
 run_in_pane() {
     local pane=$1 app=$2 deadline=$((SECONDS + 10))
@@ -43,3 +50,5 @@ run_in_pane "$claude_pane" claude
 run_in_pane "$omp_pane" omp
 
 "$herdr" tab create --workspace "$workspace" --cwd "$checkout" --label terminal --no-focus > /dev/null
+
+exit "$sub_status"
