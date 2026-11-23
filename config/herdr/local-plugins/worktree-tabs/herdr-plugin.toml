@@ -2,7 +2,7 @@ id = "local.worktree-tabs"
 name = "Worktree Tabs"
 version = "0.1.0"
 min_herdr_version = "0.9.5"
-description = "Open nvim, agents (claude | omp), and terminal tabs in new worktree workspaces, adding sub-repository worktrees for meta repositories"
+description = "Open nvim (with a shell below each editor), agents (claude | omp), and terminal tabs in new worktree workspaces, adding sub-repository worktrees for meta repositories"
 platforms = ["macos", "linux"]
 
 [[events]]

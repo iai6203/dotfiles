@@ -50,27 +50,42 @@ while IFS= read -r repo; do
     if [[ -n $repo ]]; then repos+=("$repo"); fi
 done <<< "$created_repos"
 
+nvim_dirs=()
+if (( ${#repos[@]} == 0 )); then
+    nvim_dirs=("$checkout")
+else
+    for repo in "${repos[@]}"; do nvim_dirs+=("$checkout/$repo"); done
+fi
+
+nvim_panes=("$initial_pane")
+pane=$initial_pane
+for (( i = 1; i < ${#nvim_dirs[@]}; i++ )); do
+    # The ratio is the share kept by the pane being split, so 1/remaining
+    # leaves every pane with the same width.
+    ratio=$(LC_ALL=C awk -v n="$(( ${#nvim_dirs[@]} - i + 1 ))" 'BEGIN { printf "%.4f", 1 / n }')
+    pane=$("$herdr" pane split "$pane" --direction right --ratio "$ratio" \
+        --cwd "${nvim_dirs[i]}" --no-focus | jq -er '.result.pane.pane_id')
+    nvim_panes+=("$pane")
+done
+
+# Give every nvim column a shell below it in the same directory. This runs after
+# the column splits so each column gets its own shell, and the explicit --cwd
+# matters for the initial pane, which opened at the checkout root.
+for (( i = 0; i < ${#nvim_dirs[@]}; i++ )); do
+    "$herdr" pane split "${nvim_panes[i]}" --direction down --ratio 0.8 \
+        --cwd "${nvim_dirs[i]}" --no-focus > /dev/null
+done
+
+# Split first and start nvim afterwards so no nvim is resized while starting.
+# In a meta repository the initial pane moves from the checkout root into its repository.
 if (( ${#repos[@]} == 0 )); then
     run_in_pane "$initial_pane" nvim
 else
-    nvim_panes=("$initial_pane")
-    pane=$initial_pane
-    for (( i = 1; i < ${#repos[@]}; i++ )); do
-        # The ratio is the share kept by the pane being split, so 1/remaining
-        # leaves every pane with the same width.
-        ratio=$(LC_ALL=C awk -v n="$(( ${#repos[@]} - i + 1 ))" 'BEGIN { printf "%.4f", 1 / n }')
-        pane=$("$herdr" pane split "$pane" --direction right --ratio "$ratio" \
-            --cwd "$checkout/${repos[i]}" --no-focus | jq -er '.result.pane.pane_id')
-        nvim_panes+=("$pane")
-    done
-
-    # Split first and start nvim afterwards so no nvim is resized while starting.
-    # The initial pane opened at the checkout root, so it moves into its repository.
-    run_in_pane "$initial_pane" "cd -- $(printf '%q' "$checkout/${repos[0]}") && nvim"
-    for (( i = 1; i < ${#repos[@]}; i++ )); do
-        run_in_pane "${nvim_panes[i]}" nvim
-    done
+    run_in_pane "$initial_pane" "cd -- $(printf '%q' "${nvim_dirs[0]}") && nvim"
 fi
+for (( i = 1; i < ${#nvim_panes[@]}; i++ )); do
+    run_in_pane "${nvim_panes[i]}" nvim
+done
 
 claude_pane=$("$herdr" tab create --workspace "$workspace" --cwd "$checkout" --label agents --no-focus \
     | jq -er '.result.root_pane.pane_id')

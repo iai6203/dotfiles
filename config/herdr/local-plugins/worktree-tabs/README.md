@@ -8,7 +8,7 @@ macOS 또는 Linux(WSL2 포함)에서 Herdr 0.9.5 이상과 `jq`가 필요합니
 herdr plugin link "$PWD/config/herdr/local-plugins/worktree-tabs"
 ```
 
-Herdr에서 새 worktree를 만들면 기본 탭을 `nvim`으로 바꾸고 `agents`, `terminal` 탭을 순서대로 추가합니다. `agents` 탭은 좌우 50:50으로 나뉘어 왼쪽에서 `claude`, 오른쪽에서 `omp`를 실행합니다. 모든 pane은 새 checkout 루트에서 열립니다. `nvim` 탭은 `nvim`을 실행하고, `terminal` 탭은 별도 명령 없이 기본 셸만 엽니다. 추가 탭으로 포커스를 옮기지 않으며, 기존 worktree를 다시 열 때는 실행되지 않습니다.
+Herdr에서 새 worktree를 만들면 기본 탭을 `nvim`으로 바꾸고 `agents`, `terminal` 탭을 순서대로 추가합니다. `agents` 탭은 좌우 50:50으로 나뉘어 왼쪽에서 `claude`, 오른쪽에서 `omp`를 실행합니다. 모든 pane은 새 checkout 루트에서 열립니다. `nvim` 탭은 위아래 80:20으로 나뉘어 위에서 `nvim`을 실행하고 아래에는 같은 경로의 셸을 엽니다. `terminal` 탭은 별도 명령 없이 기본 셸만 엽니다. 추가 탭으로 포커스를 옮기지 않으며, 기존 worktree를 다시 열 때는 실행되지 않습니다.
 
 ```sh
 herdr plugin log list --plugin local.worktree-tabs --limit 5
@@ -61,7 +61,7 @@ meta 레포 루트에 `.gitignore`와 `.herdr-worktree.json`을 두고 커밋합
 - `repos`: 분기할 서브 레포 디렉터리입니다. 각 항목은 그 자체가 Git 레포 루트여야 하며, 아니면 경고를 남기고 건너뜁니다. 같은 이름의 로컬 브랜치가 있으면 그 브랜치를 checkout하고, 없으면 `origin/HEAD`(없거나 가리키는 브랜치가 사라졌으면 `HEAD`)에서 meta worktree와 같은 이름의 브랜치를 upstream 없이 만듭니다. 미리 `git fetch`하지 않으므로 최신 기준이 필요하면 원본 레포에서 먼저 fetch합니다.
 - `copy`: Git이 추적하지 않아 새 checkout에 없는 파일을 meta 레포 루트 기준 경로로 적습니다. 원본 파일이나 대상 디렉터리가 없거나 대상이 checkout 밖으로 이어지면 경고만 남기고, 이미 있는 파일은 덮어쓰지 않습니다.
 
-meta 레포에서는 `nvim` 탭을 서브 레포 worktree 수만큼 같은 폭으로 좌우 분할하고, `repos` 순서대로 각 pane에서 해당 서브 레포 루트로 `nvim`을 실행합니다. 이번에 만들지 못한 서브 레포는 경로가 이미 있더라도 분할에서 빠지고, 하나도 없으면 checkout 루트에서 `nvim` 하나만 엽니다. 레포를 넘나드는 검색이나 작업은 checkout 루트에서 열리는 `agents`, `terminal` 탭에서 합니다.
+meta 레포에서는 `nvim` 탭을 서브 레포 worktree 수만큼 같은 폭으로 좌우 분할하고, `repos` 순서대로 각 열 위쪽에서 해당 서브 레포 루트로 `nvim`을 실행하고 아래쪽에 같은 서브 레포 루트의 셸을 엽니다. 이번에 만들지 못한 서브 레포는 경로가 이미 있더라도 분할에서 빠지고, 하나도 없으면 checkout 루트에서 `nvim`과 그 아래 셸 하나씩만 엽니다. 특정 서브 레포 안의 명령은 `nvim` 탭 아래쪽 셸에서, 레포를 넘나드는 검색이나 작업은 checkout 루트에서 열리는 `agents`, `terminal` 탭에서 합니다.
 
 `.herdr-worktree.json`이 없는 일반 레포에서는 서브 레포 단계를 건너뜁니다. manifest 형식이 잘못됐거나 서브 레포 준비에 실패해도 탭은 열고, 플러그인 로그에 실패 상태와 이유를 남깁니다.
 
