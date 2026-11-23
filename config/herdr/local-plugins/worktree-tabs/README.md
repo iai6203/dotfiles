@@ -1,6 +1,6 @@
 # Worktree Tabs
 
-macOS에서 Herdr 0.9.5 이상과 `jq`가 필요합니다. Herdr pane의 셸에서 `nvim`, `claude`, `omp`를 실행할 수 있어야 합니다.
+macOS 또는 Linux(WSL2 포함)에서 Herdr 0.9.5 이상과 `jq`가 필요합니다. Herdr pane의 셸에서 `nvim`, `claude`, `omp`를 실행할 수 있어야 합니다.
 
 이 레포의 메인 체크아웃 루트에서 한 번 등록합니다.
 

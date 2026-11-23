@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-# The Herdr server may start without Homebrew in its PATH.
-export PATH="$PATH:/opt/homebrew/bin:/usr/local/bin"
+# The Herdr server may start without Homebrew (macOS) or Linuxbrew (Linux/WSL) in its PATH.
+export PATH="$PATH:/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
 herdr=${HERDR_BIN_PATH:?}
 event=${HERDR_PLUGIN_EVENT_JSON:?}
 workspace=$(jq -er '.data.workspace.workspace_id' <<< "$event")

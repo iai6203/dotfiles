@@ -3,7 +3,7 @@ name = "Worktree Tabs"
 version = "0.1.0"
 min_herdr_version = "0.9.5"
 description = "Open nvim, agents (claude | omp), and terminal tabs in new worktree workspaces"
-platforms = ["macos"]
+platforms = ["macos", "linux"]
 
 [[events]]
 on = "worktree.created"
