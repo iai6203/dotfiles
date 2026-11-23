@@ -13,8 +13,10 @@ source_root=$(jq -er '.data.workspace.worktree.repo_root' <<< "$event")
 
 # Prepare sub-repository worktrees before the panes start, but still open the
 # tabs when a sub-repository fails; the failure is reported via the exit code.
+# The helper prints only the sub-repositories whose worktrees it created.
 sub_status=0
-/bin/bash "$(dirname "$0")/sub-worktrees.sh" "$source_root" "$checkout" "$branch" || sub_status=$?
+created_repos=$(/bin/bash "$(dirname "$0")/sub-worktrees.sh" "$source_root" "$checkout" "$branch") \
+    || sub_status=$?
 
 run_in_pane() {
     local pane=$1 app=$2 deadline=$((SECONDS + 10))
@@ -42,14 +44,11 @@ initial_pane=$("$herdr" pane list --workspace "$workspace" | jq -er --arg tab "$
 "$herdr" tab rename "$initial_tab" nvim > /dev/null
 
 # Meta repositories get one equal-width nvim pane per sub-repository worktree
-# that exists; anything else keeps a single nvim at the checkout root.
+# created for this branch; anything else keeps a single nvim at the checkout root.
 repos=()
-manifest="$checkout/.herdr-worktree.json"
-if [[ -f $manifest ]]; then
-    while IFS= read -r repo; do
-        [[ -e $checkout/$repo/.git ]] && repos+=("$repo")
-    done < <(jq -r '.repos // [] | .[]' "$manifest")
-fi
+while IFS= read -r repo; do
+    if [[ -n $repo ]]; then repos+=("$repo"); fi
+done <<< "$created_repos"
 
 if (( ${#repos[@]} == 0 )); then
     run_in_pane "$initial_pane" nvim
@@ -59,7 +58,7 @@ else
     for (( i = 1; i < ${#repos[@]}; i++ )); do
         # The ratio is the share kept by the pane being split, so 1/remaining
         # leaves every pane with the same width.
-        ratio=$(awk -v n="$(( ${#repos[@]} - i + 1 ))" 'BEGIN { printf "%.4f", 1 / n }')
+        ratio=$(LC_ALL=C awk -v n="$(( ${#repos[@]} - i + 1 ))" 'BEGIN { printf "%.4f", 1 / n }')
         pane=$("$herdr" pane split "$pane" --direction right --ratio "$ratio" \
             --cwd "$checkout/${repos[i]}" --no-focus | jq -er '.result.pane.pane_id')
         nvim_panes+=("$pane")
